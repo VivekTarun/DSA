@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+// Function Signature.
+void printcounting( int n){
+
+   
+    for( int i = 1; i<=n; i++){
+        cout << i << " ";
+    }
+    
+
+}
+ 
+int main()
+{
+
+    int n;
+    cin >> n;
+    printcounting(n);
+    return 0;
+}
