@@ -1,3 +1,10 @@
+/*
+TYPES OF LL 
+1.SinglyLL
+2.DoublyLL
+3.SinglyCircularLL
+4.DoublyCircularLL
+*/
 #include <iostream>
 using namespace std;
 
