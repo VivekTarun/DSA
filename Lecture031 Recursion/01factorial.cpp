@@ -2,26 +2,26 @@
 using namespace std;
 
 int factorial(int n) {
-
-    // base case
-    if(n == 0)
+    //base case
+    if(n == 0) {
         return 1;
+    }
 
-    int smallerProblem = factorial(n-1);   
-    int biggrProblem = n * smallerProblem;
+    int smallerProblem = factorial(n-1);
+    int biggerProblem = n * smallerProblem;
 
-    return biggrProblem;
-    // return n * factorial(n-1);
+    return biggerProblem;
 }
-  
+ 
 int main()
 {
     int n;
-    cout << "Enter the value of n \n" ;
+    cout << "Enter the value of n - ";
     cin >> n;
 
     int ans = factorial(n);
 
-    cout << ans;
+    cout << "factorial value is - ";
+    cout << ans << endl;
     return 0;
 }
