@@ -29,6 +29,6 @@ int main()
     int length = getLength(name);
      reverseString(name, length);
     cout << "your name is " << name << endl;
-    
+
     return 0;
 }
