@@ -1,7 +1,24 @@
 // If there is no property in class then size is 1 byte
-// padding of memory is done. --> int + char = sizeof() --> 5 but ans will be 8
-// gready alignment.
+// READ padding of memory is done. --> int + char = sizeof() --> 5 but ans will be 8
+// READ gready alignment.
 // *this store the address of the object of the class.
+// copy constructer is special*** waha pe hum pass by reference value pass karte hain nhi tooh loop mein faas jayega 
+// read about copy constructer again
+// 2 tarah ki copy hoti hai 
+        // deep copy --> iisme same address pe ja ke nhi hota hai.
+        // sallow copy --> default copy constructer. same hein address pe ja ke copy karta hai
+
+// static Allocation ke leye Disturctor automatically call hota hai
+// dynamic Allocation ke leye Distructor Manually call karna parta hai        
+// constructor and distructor mein same hota hai
+//      constructor ek hein baar call hota hai jab uuska creation ka time hota hai.
+//      distructor ek hein baar call hota hai jab uuska deletion ka time hota hai.
+// READ const keyword, -> object creation mein kaise use karte and const type ke fn() create kar saqte hain. member data type mein kaise use kar saqte hain
+// READ initialization list.
+//static key word --> data member hota hai jo belongs to class jaha pe object banane ki need nhi hoti.
+
+// static functions --> object create karne ki need nhi hai. and iiske pass this key word nhi hota hai because (this keyword hota hai pointer to current object);
+// but yaha tooh koi object hein nhi hai iss leye yaha par this keyword nhi hota hai.
 #include <iostream>
 using namespace std;
 
@@ -11,11 +28,14 @@ class Hero {
     int health;
 
     public:
-    
+    char *name;
+    char level;
+    static int timeToComplete;
 
-    // jaise hein hum khud ki constructer ki implemention yaha likh dete hain default constructer haat jata hai aapne aap.
+    // jaise hein hum khud ki constructer ki implemention yaha likh dete hain default constructer haat jata hai aapne aap. 
     Hero() {
         cout << "constructer called." << endl;
+        name = new char[100];
     }
 
     //parametrised constructer
@@ -28,10 +48,27 @@ class Hero {
         this -> health = health;
         this -> level = level;
     }
-    char level;
+
+    // copy constructer
+    Hero (Hero& temp) {
+
+        char *ch = new char[strlen(temp.name) + 1];
+        strcpy(ch, temp.name);
+        this -> name = ch;
+        cout << "copy constructer called" << endl;
+        this -> health = temp.health;
+        this -> level = temp.level;
+    }
+
+
+    
 
     void print() {
-        cout << level << endl;
+        cout << endl;
+        cout << "[ Name: " << this -> name << " ,";
+        cout << "health: " << this -> health << " ,";
+        cout << "level: " << this -> level << " ]" << endl;
+        cout << endl;
     }
 
     int getHealth() {
@@ -49,23 +86,135 @@ class Hero {
     void setLevel(char l) {
         level = l;
     }
+
+    void setName(char name[]) {
+        strcpy(this -> name, name); 
+    }
+
+    ~Hero () {
+        cout << "Destructor bhai called" << endl;
+    }
+
+    static int random() {
+        return timeToComplete;
+    }
 };
+
+int Hero::timeToComplete = 5;
  
 int main()
 {
 
+    cout << Hero::timeToComplete << endl;
 
-    cout << "hi " << endl;
-    // statically
-    Hero ramesh;
-    ramesh.print();
+    // Hero a;
+    // cout << a.timeToComplete << endl;
 
-    // Dynamically
-    Hero *h = new Hero;
-    h -> print();
+    // Hero b;
+    // b.timeToComplete = 10;
+    // cout << a.timeToComplete << endl;
+    // // cout << b.timeToComplete << endl;
 
-    Hero temp(22, 'B');
-    temp.print();
+
+
+    // //static
+    // Hero a;
+
+
+    // //dynamic
+    Hero *b = new Hero();
+    // delete b;
+
+    // return 0;
+
+
+
+
+
+
+
+
+
+    // Hero hero1;
+    // hero1.setHealth(12);
+    // hero1.setLevel('D');
+    // char name[7] = "Babbar";
+    // hero1.setName(name);
+
+    // hero1.print();
+
+    // //use default copy constructer.
+    // Hero hero2(hero1);
+    // hero2.print();
+    // // Hero hero2 = hero1;
+
+    // hero1.name[0] = 'G';
+
+    // hero1.print();
+
+    // hero2.print();
+
+
+
+    // hero1 = hero2;
+
+
+
+//     Hero s(70, 'c');
+//     s.print();
+
+//     Hero r(s);
+//    r.print();
+    
+
+
+
+
+
+
+     
+    // Hero hero1;
+    // hero1.setHealth(12);
+    // hero1.setLevel('D');
+    // char name[7] = "Babbar";
+    // hero1.setName(name);
+
+
+    // hero1.print();
+
+
+    // Hero suresh(20, 'c');
+    // suresh.print();
+
+    // //copy constructer.
+    // Hero R(suresh);
+    // R.print();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // cout << "hi " << endl;
+    // // statically
+    // Hero ramesh;
+    // ramesh.print();
+
+    // // Dynamically
+    // Hero *h = new Hero;
+    // h -> print();
+
+    // Hero temp(22, 'B');
+    // temp.print();
 
 
 
