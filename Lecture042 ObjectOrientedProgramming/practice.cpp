@@ -63,7 +63,7 @@ class Hero {
 
     
 
-    void print() {
+    Hero* print() {
         cout << endl;
         cout << "[ Name: " << this -> name << " ,";
         cout << "health: " << this -> health << " ,";
@@ -107,25 +107,23 @@ int main()
 
     cout << Hero::timeToComplete << endl;
 
-    // Hero a;
-    // cout << a.timeToComplete << endl;
+    Hero a;
+    cout << a.timeToComplete << endl;
 
-    // Hero b;
-    // b.timeToComplete = 10;
-    // cout << a.timeToComplete << endl;
-    // // cout << b.timeToComplete << endl;
+    Hero b;
+    b.timeToComplete = 10;
+    cout << a.timeToComplete << endl;
+    // cout << b.timeToComplete << endl;
 
 
 
     // //static
-    // Hero a;
+    Hero a;
 
 
     // //dynamic
     Hero *b = new Hero();
-    // delete b;
-
-    // return 0;
+    delete b;
 
 
 
@@ -135,36 +133,38 @@ int main()
 
 
 
-    // Hero hero1;
-    // hero1.setHealth(12);
-    // hero1.setLevel('D');
-    // char name[7] = "Babbar";
-    // hero1.setName(name);
-
-    // hero1.print();
-
-    // //use default copy constructer.
-    // Hero hero2(hero1);
-    // hero2.print();
-    // // Hero hero2 = hero1;
-
-    // hero1.name[0] = 'G';
-
-    // hero1.print();
-
-    // hero2.print();
 
 
+    Hero hero1;
+    hero1.setHealth(12);
+    hero1.setLevel('D');
+    char name[7] = "Babbar";
+    hero1.setName(name);
 
-    // hero1 = hero2;
+    hero1.print();
+
+    //use default copy constructer.
+    Hero hero2(hero1);
+    hero2.print();
+    // Hero hero2 = hero1;
+
+    hero1.name[0] = 'G';
+
+    hero1.print();
+
+    hero2.print();
 
 
 
-//     Hero s(70, 'c');
-//     s.print();
+    hero1 = hero2;
 
-//     Hero r(s);
-//    r.print();
+
+
+    Hero s(70, 'c');
+    s.print();
+
+    Hero r(s);
+   r.print();
     
 
 
@@ -173,25 +173,22 @@ int main()
 
 
      
-    // Hero hero1;
-    // hero1.setHealth(12);
-    // hero1.setLevel('D');
-    // char name[7] = "Babbar";
-    // hero1.setName(name);
+    Hero hero1;
+    hero1.setHealth(12);
+    hero1.setLevel('D');
+    char name[7] = "Babbar";
+    hero1.setName(name);
 
 
-    // hero1.print();
+    hero1.print();
 
 
-    // Hero suresh(20, 'c');
-    // suresh.print();
+    Hero suresh(20, 'c');
+    suresh.print();
 
-    // //copy constructer.
-    // Hero R(suresh);
-    // R.print();
-
-
-
+    //copy constructer.
+    Hero R(suresh);
+    R.print();
 
 
 
@@ -204,56 +201,59 @@ int main()
 
 
 
-    // cout << "hi " << endl;
-    // // statically
+
+
+
+    cout << "hi " << endl;
+    // statically
+    Hero ramesh;
+    ramesh.print();
+
+    // Dynamically
+    Hero *h = new Hero;
+    h -> print();
+
+    Hero temp(22, 'B');
+    temp.print();
+
+
+
+
+
+
+
+
+
+
+
+    Hero ramesh; // jab bhi object ko create karte hain ek chij call hoti hai constructer. --> object create hone ke time pe invoke hota hai.
+    // statically allocation
+    Hero a;
+    cout << "level is " << a.level << endl;
+    cout << "health is " << a.getHealth() << endl; 
+    //dynamically
+
+    //how we do in int
+    // ek int ko heap mein allocate karte hain and jaha allocate karete hain uuska address store karwa lete hain pointer mein
+    int *i = new int;
+    Hero *h = new Hero; 
+    cout << "level :" << (*h).level << endl;
+    cout << "health :" << (*h).getHealth() << endl;
+
+    cout << "level :" << h -> level << endl;
+    cout << "health :" << h -> getHealth() << endl;
+
+
+    // //creation of object
     // Hero ramesh;
-    // ramesh.print();
 
-    // // Dynamically
-    // Hero *h = new Hero;
-    // h -> print();
+    // cout << "ramesh health is : " << ramesh.getHealth() << endl;
+    // ramesh.setHealth(70);
+    // // ramesh.health = 10;
+    // ramesh.level = 47;
 
-    // Hero temp(22, 'B');
-    // temp.print();
-
-
-
-
-
-
-
-
-
-
-
-    // Hero ramesh; // jab bhi object ko create karte hain ek chij call hoti hai constructer. --> object create hone ke time pe invoke hota hai.
-    // // statically allocation
-    // Hero a;
-    // cout << "level is " << a.level << endl;
-    // cout << "health is " << a.getHealth() << endl; 
-    // //dynamically
-
-    // //how we do in int
-    // // ek int ko heap mein allocate karte hain and jaha allocate karete hain uuska address store karwa lete hain pointer mein
-    // int *i = new int;
-    // Hero *h = new Hero; 
-    // cout << "level :" << (*h).level << endl;
-    // cout << "health :" << (*h).getHealth() << endl;
-
-    // cout << "level :" << h -> level << endl;
-    // cout << "health :" << h -> getHealth() << endl;
-
-
-    // // //creation of object
-    // // Hero ramesh;
-
-    // // cout << "ramesh health is : " << ramesh.getHealth() << endl;
-    // // ramesh.setHealth(70);
-    // // // ramesh.health = 10;
-    // // ramesh.level = 47;
-
-    // // cout << "size " << sizeof(ramesh) << endl;
-    // // cout << "health is: " << ramesh.getHealth() << endl;
-    // // cout << "level is: " << ramesh.level << endl;
-    // // // return 0;
+    // cout << "size " << sizeof(ramesh) << endl;
+    // cout << "health is: " << ramesh.getHealth() << endl;
+    // cout << "level is: " << ramesh.level << endl;
+    // // return 0;
 }
