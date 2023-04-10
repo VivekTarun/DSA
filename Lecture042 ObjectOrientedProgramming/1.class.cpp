@@ -9,11 +9,8 @@ class
 instintation
 
 */
-
-
 #include <iostream>
 using namespace std;
-
 
 //class bana rhe hain
 class Hero {
@@ -23,7 +20,6 @@ class Hero {
      char level;
      
 };
- 
 int main() {
 
     //onject instatiate kar rhe hain
