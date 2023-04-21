@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
- 
+ // Bahoot mahatpurna baat 
+ // ek bhi constructer ki custom implementation(chaye wooh parametrised ho ya non parametrised ho) aap likh dete ho tooh default constructer haat | maar jata hai
 class Hero {
     //properties
     private:
