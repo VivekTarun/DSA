@@ -10,20 +10,8 @@ int sum(int arr[], int size) {
         return arr[0];
     }
 
-    int remaningPart = sum(arr + 1, size - 1); 
-    int sum = arr[0] + remaningPart;
-
-
-
-
-
-
-    // int ans = 0;
-    // for(int i = 0; i < size; i++) {
-    //     ans = ans + arr[i];
-        
-    // }
-    return sum;
+    int totalSum = arr[0] + sum(arr + 1, size - 1);
+    return totalSum;
 }
  
 int main()

@@ -27,8 +27,8 @@ int main()
     cout << "Your name is " << name << endl;
 
     int length = getLength(name);
-     reverseString(name, length);
+    reverseString(name, length);
     cout << "your name is " << name << endl;
 
     return 0;
-}
+}f

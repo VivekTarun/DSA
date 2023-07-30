@@ -10,15 +10,17 @@ void print(int n){
     // Recursion relation
     print(n-1);
     
-    cout << n << endl;
+    cout << n << " ";
 }
  
 int main()
 {
     int n;
-    cout << "enter the value of n";
+    cout << "enter the value of n ";
+    
     cin >> n;
+    cout << endl;
 
     print(n);
     return 0;
-}
+} 

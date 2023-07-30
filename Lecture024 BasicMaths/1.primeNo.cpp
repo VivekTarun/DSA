@@ -1,13 +1,13 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-bool isprime(int n) {
-
-    if(n<=1) {
-        return false; 
-    }
+bool checkPrime(int n) {
     
-    for(int i =2; i<n; i++) {
+    if(n <= 1) {
+        return false;
+    }
+    for(int i = 2; i < n; i++) {
         if(n%i == 0) {
             return false;
         }
@@ -18,12 +18,15 @@ bool isprime(int n) {
 int main()
 {
     int n;
+    cout << "Enter the value of n: ";
     cin >> n;
 
-    if(isprime(n)) {
-        cout << "It is a prime no." << endl;
-    }else {
-        cout << "It is not a prime no." << endl;
+    bool prime = checkPrime(n);
+
+    if(prime) {
+        cout << n << " is prime no.";
+    } else {
+        cout << n << " is not a prime no.";
     }
     return 0;
 }

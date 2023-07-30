@@ -6,12 +6,8 @@ int power(int n) {
     if(n == 0){
         return 1;
     }
+    
     //recusrive relation
-    // int smallerProblem = power(n-1);
-    // int biggerProblem = 2 * smallerProblem;
-
-    // return biggerProblem;
-
     return 2 * power(n-1); 
 }
  

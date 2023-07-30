@@ -2,15 +2,15 @@
 using namespace std;
 
 int factorial(int n) {
-    //base case
     if(n == 0) {
         return 1;
     }
 
-    int smallerProblem = factorial(n-1);
-    int biggerProblem = n * smallerProblem;
+    // int smallerProblem = factorial(n-1);
 
-    return biggerProblem;
+    // int biggerProblem = n * smallerProblem;
+
+    return n * factorial(n - 1);
 }
  
 int main()
@@ -24,4 +24,4 @@ int main()
     cout << "factorial value is - ";
     cout << ans << endl;
     return 0;
-}
+}  

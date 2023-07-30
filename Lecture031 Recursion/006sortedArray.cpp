@@ -7,10 +7,10 @@ bool isSorted(int arr[], int size) {
         return true;
     }
 
+    // processing and recursive relation in being check.
     if(arr[0] > arr[1]) {
         return false;
-    }
-    else {
+    } else {
         bool remainingPart = isSorted(arr + 1, size -1);   
         return remainingPart; 
     }
@@ -30,3 +30,4 @@ int main()
     }
     return 0;
 }
+
