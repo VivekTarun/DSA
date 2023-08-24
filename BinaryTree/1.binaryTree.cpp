@@ -52,28 +52,28 @@ void levelOrderTraversal(node* root) { //Breath First Search.
 
  
 
-// void preorder(node* root) {
-//     //base case
-//     if(root == NULL) {
-//         return;
-//     }
+void preorder(node* root) {
+    //base case
+    if(root == NULL) {
+        return;
+    }
 
-//     cout << root -> data << " ";
-//     preorder(root -> left);
-//     preorder(root -> right);
-// }
+    cout << root -> data << " ";
+    preorder(root -> left);
+    preorder(root -> right);
+}
 
-// void postorder(node* root) {
-//     //base case
-//     if(root == NULL) {
-//         return;
-//     }
+void postorder(node* root) {
+    //base case
+    if(root == NULL) {
+        return;
+    }
 
-//     postorder(root -> left);
-//     postorder(root -> right);
-//     cout << root -> data << " ";
+    postorder(root -> left);
+    postorder(root -> right);
+    cout << root -> data << " ";
 
-// }
+}
 
 // node* buildFromLevelOrder(node*& root) {
 //     queue<node*> q;
