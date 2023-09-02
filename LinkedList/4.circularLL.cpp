@@ -1,5 +1,6 @@
 /*
-
+    we need not to use head node.
+    By using tail node only we can access head : "tail -> next == head"
 */
 #include <iostream>
 using namespace std;

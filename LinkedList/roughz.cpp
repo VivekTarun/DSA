@@ -1,14 +1,42 @@
 #include <iostream>
 using namespace std;
 
-class node {
+class Node {
+public:
     int data;
-    node* next;
+    Node* next;
 
-    node(int d) {
-        this -> data = d;
+    Node(int data) {
+        this -> data = data;
         this -> next = NULL;
-        
+    }
+
+    ~Node() {
+        if(this -> next != NULL) {
+            delete next;
+            this -> next = NULL;
+        }
+    }
+};
+
+void insertNode(Node* &tail, int element, int val) {
+    //Assume that the element is present in the list.
+
+    if(tail == NULL) {
+        Node* newNode = new Node(val);
+        tail = newNode;
+        newNode -> next = newNode;
+    } else {
+        Node* curr = tail;
+
+        while(curr -> data != element) {
+            curr = curr -> next;
+        }
+
+        Node* temp = new Node(val);
+        temp -> next = curr -> next;
+        curr -> next = temp;
+
     }
 }
  
