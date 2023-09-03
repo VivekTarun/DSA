@@ -41,6 +41,24 @@ public:
     Triple(const T1& f, const T2& s, const T3& t) : first(f), second(s), third(t) {};
 };
 
+template <typename t1, typename t2, typename t3, typename t4>
+class four {
+public:
+    t1 first;
+    t2 second;
+    t3 third;
+    t4 fourth;
+
+    four() : first(t1()), second(t2()), third(t3()), fourth(t4()) {}
+
+    four(t1 first, t2 second, t3 third, t4 fourth) {
+        this -> first = first;
+        this -> second = second;
+        this -> third = third;
+        this -> fourth = fourth;
+    }
+};
+
 int main()
 {
     Pair<int, int> var1 (0,0);
@@ -61,6 +79,8 @@ int main()
     string name = "";
     cout << endl << "name: " << name << endl;
 
-
+    four<int, int, int, int> hero;
+    hero.first = 22;
+    cout << "hero -> first: " << hero.first << endl;
     return 0;
 }
