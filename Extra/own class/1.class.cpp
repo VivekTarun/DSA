@@ -12,12 +12,23 @@ public:
         this -> second = t2();
     }
 
-    Pair(const t1& f, const t2& s) {
-        this -> first = f;
-        this -> second = s;
+    Pair(t1& first, t2& second) : first(first), second(second) {}
+};
+
+class node {
+    public:
+    int data;
+    node* left;
+    node* right;
+
+    node(int data) : data(data), left(NULL), right(NULL) {};
+    
+    node(int d) {
+        this -> data = d;
+        this -> left = NULL;
+        this -> right = NULL;
     }
 };
- 
 int main()
 {
     Pair<int, char> front;
