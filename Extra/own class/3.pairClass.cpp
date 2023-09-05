@@ -17,9 +17,27 @@ public:
         this -> second = second;
     }
 };
+
+class node {
+public:
+    int data;
+    node* next;
+
+    node() {
+        this -> data = 0;
+        next = NULL;
+    }
+    node(int data) {
+        this -> data = 0;
+        next = NULL;
+    }
+    node(int data , node* next) {
+        this -> data = data;
+        this -> next = NULL;
+    }
+};
  
-int main()
-{
+int main() {
     Pair<int, int> data;
     data.first = 1;
     data.second = 2;
@@ -31,6 +49,14 @@ int main()
     pair<bool, float> honey;
     honey.first = true;
     honey.second = 22.5f;
+
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
     
     return 0;
 }
