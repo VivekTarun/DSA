@@ -26,13 +26,13 @@ int main() {
     cout << m["mera"] << endl;
     cout << m.at("vivek") << endl;
 
-    cout << m["unknownKey"] << endl; // --> if key present nhi hogi tooh data map assign karega hai 0 return kar dega ans mein
+    cout << m["unknownKey"] << endl; // --> if key present nhi hogi tooh data map assign karega hai 0 return kar dega ans mein. khud se value bana ke 0 return kar dega. entry ban jati hai khud se.
     cout << m.at("unknownKey") << endl; // -> yaha pe if value assign nhi hogi tooh error return karega.
 
     //size
     cout << m.size() << endl;
 
-    //to check presence
+    //to check prefsence
     cout << m.count("bro") << endl;
 
 
@@ -54,7 +54,7 @@ int main() {
         it++;
     }
     /*
-        if we use unordered_map -> complexity will be O(1) and and data will not occur in same order in which we have entered the data.
+        if we use unordered_map -> complexity will be O(1) and and data will not occur in same order in which we have entered the data. unordered map is based on hash table.
         if we use map -> complexity will be O(n) and data will occure in same order in which we have entered the data. ordered map is based on BST
     */
 
