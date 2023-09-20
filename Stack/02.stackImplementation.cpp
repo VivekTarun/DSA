@@ -6,18 +6,15 @@
 using namespace std;
 
 class Stack {
-    //properties
-    public:
+public:
     int *arr;
     int top;
     int size;
 
-    //behaviour
-    //consturctor.
     Stack(int size) {
         this -> size = size;
         arr = new int[size];
-        top = -1; 
+        top = -1;
     }
 
     void push(int element) {
@@ -25,25 +22,27 @@ class Stack {
             top++;
             arr[top] = element;
         } else {
-            cout << "stack overflow" << endl;
+            cout << "Stack OverFlow" << endl;
         }
     }
+
     void pop() {
         if(top >= 0) {
             top--;
         } else {
-            cout << "Stack underflow" << endl;
+            cout << "Stack UnderFlow" << endl;
         }
     }
-    int peek() {
-        if(top >= 0 ) {
-            return arr[top];
-        } else {
-            cout << "stack is empty" << endl;
+
+    int peak() {
+        if(top >= 0 && top < size)
+        return arr[top];
+        else {
+            cout << "Stack is empty" << endl;
             return -1;
         }
-        
     }
+
     bool isEmpty() {
         if(top == -1) {
             return true;
@@ -62,9 +61,9 @@ int main()
     st.push(56);
 
 
-    cout << st.peek() << endl;
+    cout << st.peak() << endl;
     st.pop();
-    cout << st.peek();
+    cout << st.peak();
 
     
     cout << endl;
