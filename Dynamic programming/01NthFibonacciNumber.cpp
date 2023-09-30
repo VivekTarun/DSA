@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 // recursion + memoization.
 int fib(int n, vector<int> &dp) {
@@ -18,9 +19,9 @@ int main()
     int n;
     cin >> n;
 
-    vector<int> dp(n+1, -1);
+    vector<int> dpArray(n+1, -1);
 
-    cout << fib(n, dp) << endl;
+    cout << fib(n, dpArray) << endl;
 
     return 0;
 }

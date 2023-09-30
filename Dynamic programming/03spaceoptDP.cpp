@@ -9,7 +9,7 @@ int main()
     int prev1 = 1;
     int prev2 = 0;
 
-    if(n == 0) {
+    if(n == 0) { // if n == 0 then we have to return prev2.
         return prev2;
     }
 
