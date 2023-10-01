@@ -23,13 +23,13 @@ int squareRoot(int n) {
     return ans;
 }
 
-double preciseSquare(int n, int m, int sqrt) {
-    double factor = 1;
-    double ans = sqrt;
-
-    for (int i = 0; i < m; i++) {
+double preciseSquare(int value, int precision, int sqrt) {
+    int factor = 1;
+    int ans = sqrt;
+    
+    for(int i = 0; i < precision; i++) {
         factor = factor/10;
-        for(double j = ans; j*j < n; j = j+factor) {
+        for (double j = ans; j*j < value; j = j + factor) {
             ans = j;
         }
     }
