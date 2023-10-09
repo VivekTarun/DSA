@@ -20,7 +20,13 @@ void heapify(int arr[], int n, int i) {
         // swap karna hoga
         swap(arr[index] , arr[largest]);
         index = largest;
-        heapify(arr, n, index)
+        heapify(arr, n, index);
+    }
+}
+
+void buildHeap(int arr[], int n) {
+    for(int i = n/2; i > 0; i--) {
+        heapify(arr, n, i);
     }
 }
  
