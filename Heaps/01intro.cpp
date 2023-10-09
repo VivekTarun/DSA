@@ -1,105 +1,84 @@
 #include <iostream>
 using namespace std;
 
-class heap {
+class Heap {
 public:
-    int arr[100];
-    int size = 0;
+    int arr[101];
+    int size;
 
-    heap() {
+    Heap() {
         arr[0] = -1;
         size = 0;
     }
-    void insert(int val) {
+
+    void insert(int value) {
+        // value insert karna hai end mein
         size = size + 1;
         int index = size;
-        arr[index] = val;
+        arr[index] = value;
 
+        // iss value ko place karna hai sahi position pe.
         while(index > 1) {
-            int parent = index/2;
-
-            if(arr[parent] < arr[index]) {
-                swap(arr[parent], arr[index]);
-                index = parent; // index ko parent pe iss liye le ja rhe hain 
-                                // ta ki aur uper wle level se compare kar paye.
+            int parentIndex = index/2;
+            if(arr[index] > arr[parentIndex]) {
+                swap(arr[index], arr[parentIndex]);
+                index = parentIndex;
             } else {
-                return;
+                break;
             }
         }
     }
 
-    void print() {
-        for(int i = 1; i <= size; i++) {
-            cout << arr[i] << " ";
-        } cout << endl;
-    }
+    void delete1() {
+        //replace root node value with last node data
+        arr[1] == arr[size];
+        size--; // delete the last node.
 
-    void deleteFromHeap() {
-        if(size == 0) {
-            cout << "nothing to delete" << endl;
-            return;
-        }
+        //place root node ka data on its correct position
+        int index = 1;
+        while(index < size) {
+            int left = 2*index;
+            int right = 2*index + 1;
 
-        //step1: put last element into first index;
-        arr[1] = arr[size];
+            int largest = index;
+            
+            if(left < size && arr[largest] < arr[left]) {
+                largest = left;
+            }
+            if(right < size && arr[largest] < arr[right]) {
+                largest = right;
+            }
 
-        //step2: remove last element;
-        size--;
-
-        //step3: take root node to its correct position
-        int i = 1;
-        while(i < size) {
-            int leftIndex = 2*i;
-            int rightIndex = 2*i + 1;
-
-            if(leftIndex < size && arr[i] < arr[leftIndex]) {
-                swap(arr[i], arr[leftIndex]);
-                i = leftIndex;
-            } else if(rightIndex < size && arr[i] < arr[rightIndex]) {
-                swap(arr[i], arr[rightIndex]);
-                i = rightIndex;
-            } else {
+            if(largest == index) {
                 return;
+            } else {
+                swap(arr[index], arr[largest]);
+                index = largest;
             }
         }
     }
 };
-
-void heapify(int arr[], int n, int i) {
-    int largest = i;
-    int left = 2*i;
-    int right = 2*i + 1;
-
-    if(left < n && arr[largest] < arr[left]) {
-        largest = left;
-    }
-    if(right < n && arr[largest] < arr[right]) {
-        largest = right;
-    }
-    if(largest != i) {
-        swap(arr[largest], arr[i]);
-        heapify(arr, n, largest);
-    }
-}
- 
 int main() {
     
-    heap h;
-    h.insert(50);
-    h.insert(55);
-    h.insert(53);
-    h.insert(52);
-    h.insert(54);
-    h.print();
-    h.deleteFromHeap();
-    h.print(); 
+    Heap h;
+    h.arr[0] = -1;
+    h.arr[1] = 100;
+    h.arr[2] = 50;
+    h.arr[3] = 60;
+    h.arr[4] = 40;
+    h.arr[5] = 45;
+    h.size = 5;
 
-    int arr[6] = {-1, 54, 53, 55, 52, 50};
-    int n = 5;
-    for(int i = n/2; i>0; i--) {
-        heapify(arr, n, i);
-    }
-    cout << "Printing the arry now: " << endl;
-    for(int i = 1; i<=n; i++) cout << arr[i] << " ";
+    cout << "printing the heap " << endl;
+
+    for(int i = 0; i<= h.size; i++) {
+        cout << h.arr[i] << " ";
+    } cout << endl;
+
+    h.insert(110);
+    cout << "printing the heap " << endl;
+    for(int i = 0; i <= h.size; i++) {
+        cout << h.arr[i] << " ";
+    } cout << endl;
     return 0;
 }
