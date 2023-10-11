@@ -34,11 +34,14 @@ void heapSort(int arr[], int n ) {
     int index = n;
 
     while(n != 1) {
-        swap(arr[1], arr[index]);
+        swap(arr[1], arr[index--]);
+        index--;
         n--;
 
         //heapify
-        heapify(arr, n, index);
+        heapify(arr, n, 1); // hume bhejna hai index but uuper 
+                            // tooh swap kark liye hain index and arr[1] ko 
+                            // iss liye argument mein 1 pass kar rhe hain.
     }
 }
  
