@@ -1,27 +1,17 @@
 #include <iostream>
-#include <bits/stdc++.h>
 using namespace std;
-
-int NthRoot(int n, int m) {
-  int start = 1;
-  int end = m;
-  long long int ans = -1;
-  while(start <= end) {
-    long long int mid = start + (end - start)/2;
-    long long int element = pow(mid, n);
-    if(element == m) {
-      ans = mid;
-    } else if(element > m) {
-      end = mid - 1;
-    } else {
-      start = mid + 1;
+double myPow(double x, int n) {
+    if(n == 0) {
+        return 1;
     }
-  }
-  return ans;
-}
 
+    double ans = myPow(x, n-1);
+    double power = ans * x;
+    return power;
+}
+ 
 int main() {
-  int ans = NthRoot(3, 27);
-  cout << ans;
-  return 0;
+    
+    cout << myPow(2, 4) << endl;
+    return 0;
 }

@@ -41,7 +41,9 @@ int getKthSmallestElement(int arr[], int n, int k) {
     }
     int ans = pq.top();
     return ans;
-}
+};
+
+
 int main() {
     int arr[] = {10, 5, 20, 4, 15};
     int n = 5;
